@@ -13,14 +13,16 @@ struct FeedView: View {
     @EnvironmentObject var appState: AppState
 
     var body: some View {
-        ScrollView {
-            FeedHeader()
-            VStack {
-                ForEach(appState.userData.posts) { post in
-                    PostView(post: post)
-                }
-            }
-        }
+		VStack {
+			FeedHeader()
+			ScrollView {
+				VStack {
+					ForEach(appState.userData.posts) { post in
+						PostView(post: post)
+					}
+				}
+			}
+		}
     }
 }
 

@@ -14,6 +14,8 @@ class Post: Identifiable, ObservableObject {
     let imageURL: URL?
     let likesCount: UInt
     let description: String
+    let date: Date
+    @Published var comments: [Comment]
     @Published var isLiked: Bool
     @Published var isSaved: Bool
     
@@ -22,6 +24,8 @@ class Post: Identifiable, ObservableObject {
          imageURL: URL?,
          likesCount: UInt,
          description: String,
+         date: Date,
+         comments: [Comment],
          isLiked: Bool,
          isSaved: Bool) {
         self.id = UUID()
@@ -30,6 +34,8 @@ class Post: Identifiable, ObservableObject {
         self.imageURL = imageURL
         self.isLiked = isLiked
         self.isSaved = isSaved
+        self.date = date
+        self.comments = comments
         self.likesCount = likesCount
         self.description = description
     }

@@ -62,6 +62,9 @@ struct PostView: View {
                             // FIXME: (Quentin Cornu) To handle
                         }
                 }
+				Text(post.date.timeAgo)
+					.font(.footnote)
+					.foregroundColor(.secondary)
             }.padding()
         }
     }

@@ -16,6 +16,17 @@ struct FeedView: View {
 		VStack {
 			FeedHeader()
 			ScrollView {
+				ScrollView(.horizontal, showsIndicators: false) {
+					HStack(spacing: 13) {
+						Spacer(minLength: 0)
+						StoryView(user: User.mockedData)
+						StoryView(user: User.mockedData)
+						StoryView(user: User.mockedData)
+						StoryView(user: User.mockedData)
+						StoryView(user: User.mockedData)
+						Spacer(minLength: 0)
+					}
+				}
 				VStack {
 					ForEach(appState.userData.posts) { post in
 						PostView(post: post)

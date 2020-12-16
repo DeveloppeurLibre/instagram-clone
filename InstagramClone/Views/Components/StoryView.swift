@@ -11,6 +11,19 @@ import KingfisherSwiftUI
 struct StoryView: View {
 	
 	let user: User
+	@Binding var isNew: Bool
+	
+	private let coloredGradient = AngularGradient(
+		gradient: Gradient(colors: [.purple, .red, .yellow, .red]),
+		center: .center,
+		startAngle: .degrees(100),
+		endAngle: .degrees(540)
+	)
+	
+	private let grayGradient = AngularGradient(
+		gradient: Gradient(colors: [Color.init(white: 0.8)]),
+		center: .center
+	)
 	
     var body: some View {
 		VStack(spacing: 4) {
@@ -21,30 +34,29 @@ struct StoryView: View {
 					.frame(width: 72, height: 72)
 					.clipShape(Circle())
 				Circle()
-					.stroke(lineWidth: 2)
+					.stroke(lineWidth: isNew ? 2 : 1)
 					.fill(
-						AngularGradient(
-							gradient: Gradient(colors: [.purple, .red, .yellow, .red]),
-							center: .center,
-							startAngle: .degrees(100),
-							endAngle: .degrees(540)
-						)
+						isNew ? coloredGradient : grayGradient
 					)
 					.frame(width: 80, height: 80)
 			}.padding(2)
 			Text(user.name)
 		}
-		
     }
 }
 
 struct StoryView_Previews: PreviewProvider {
 	
 	static var user = User.mockedData
+	@State static var isNew = true
+	@State static var isNotNew = false
 	
     static var previews: some View {
-		StoryView(user: user)
-			.padding()
-			.previewLayout(.sizeThatFits)
+		Group {
+			StoryView(user: user, isNew: $isNew)
+			StoryView(user: user, isNew: $isNotNew)
+		}
+		.padding()
+		.previewLayout(.sizeThatFits)
     }
 }

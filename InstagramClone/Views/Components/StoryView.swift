@@ -10,8 +10,7 @@ import KingfisherSwiftUI
 
 struct StoryView: View {
 	
-	let user: User
-	@Binding var isNew: Bool
+	@ObservedObject var story: Story
 	
 	private let coloredGradient = AngularGradient(
 		gradient: Gradient(colors: [.purple, .red, .yellow, .red]),
@@ -28,35 +27,35 @@ struct StoryView: View {
     var body: some View {
 		VStack(spacing: 4) {
 			ZStack {
-				KFImage(user.imageURL)
+				KFImage(story.user.imageURL)
 					.resizable()
 					.aspectRatio(contentMode: .fill)
 					.frame(width: 72, height: 72)
 					.clipShape(Circle())
 				Circle()
-					.stroke(lineWidth: isNew ? 2 : 1)
+					.stroke(lineWidth: story.isNew ? 2 : 1)
 					.fill(
-						isNew ? coloredGradient : grayGradient
+						story.isNew ? coloredGradient : grayGradient
 					)
 					.frame(width: 80, height: 80)
 			}.padding(2)
-			Text(user.name)
+			Text(story.user.name)
 				.font(.subheadline)
 				.frame(maxWidth: 82)
+				.lineLimit(1)
 		}
     }
 }
 
 struct StoryView_Previews: PreviewProvider {
 	
-	static var user = User.mockedData[0]
-	@State static var isNew = true
-	@State static var isNotNew = false
+	static var story1 = Story.mockedData[0]
+	static var story2 = Story.mockedData[1]
 	
     static var previews: some View {
 		Group {
-			StoryView(user: user, isNew: $isNew)
-			StoryView(user: user, isNew: $isNotNew)
+			StoryView(story: story1)
+			StoryView(story: story2)
 		}
 		.padding()
 		.previewLayout(.sizeThatFits)

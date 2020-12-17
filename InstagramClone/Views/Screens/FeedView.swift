@@ -20,8 +20,7 @@ struct FeedView: View {
 					HStack(spacing: 13) {
 						Spacer(minLength: 0)
 						ForEach(appState.userData.stories) { story in
-							// FIXME : Replace .constant by real value
-							StoryView(user: story.user, isNew: .constant(true))
+							StoryView(story: story)
 						}
 						Spacer(minLength: 0)
 					}

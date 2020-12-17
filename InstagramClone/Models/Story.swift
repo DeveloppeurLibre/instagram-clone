@@ -12,6 +12,9 @@ class Story: ObservableObject, Identifiable {
 	let id: UUID
 	let user: User
 	@Published var contents: [Content]
+	var isNew: Bool {
+		contents.map { $0.isNew }.contains(true)
+	}
 	
 	init(user: User, contents: [Content]) {
 		self.id = UUID()

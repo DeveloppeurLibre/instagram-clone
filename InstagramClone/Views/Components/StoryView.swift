@@ -41,6 +41,8 @@ struct StoryView: View {
 					.frame(width: 80, height: 80)
 			}.padding(2)
 			Text(user.name)
+				.font(.subheadline)
+				.frame(maxWidth: 82)
 		}
     }
 }

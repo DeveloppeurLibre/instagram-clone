@@ -19,7 +19,10 @@ struct FeedView: View {
 				ScrollView(.horizontal, showsIndicators: false) {
 					HStack(spacing: 13) {
 						Spacer(minLength: 0)
-						// TODO: To complete
+						ForEach(appState.userData.stories) { story in
+							// FIXME : Replace .constant by real value
+							StoryView(user: story.user, isNew: .constant(true))
+						}
 						Spacer(minLength: 0)
 					}
 				}

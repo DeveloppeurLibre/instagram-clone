@@ -7,12 +7,14 @@
 
 import Foundation
 
-class Story: ObservableObject {
+class Story: ObservableObject, Identifiable {
 	
+	let id: UUID
 	let user: User
 	@Published var contents: [Content]
 	
 	init(user: User, contents: [Content]) {
+		self.id = UUID()
 		self.user = user
 		self.contents = contents
 	}

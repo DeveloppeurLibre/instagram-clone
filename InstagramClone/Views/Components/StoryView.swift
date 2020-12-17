@@ -47,7 +47,7 @@ struct StoryView: View {
 
 struct StoryView_Previews: PreviewProvider {
 	
-	static var user = User.mockedData
+	static var user = User.mockedData[0]
 	@State static var isNew = true
 	@State static var isNotNew = false
 	

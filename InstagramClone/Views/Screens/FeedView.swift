@@ -19,11 +19,7 @@ struct FeedView: View {
 				ScrollView(.horizontal, showsIndicators: false) {
 					HStack(spacing: 13) {
 						Spacer(minLength: 0)
-						StoryView(user: User.mockedData, isNew: .constant(false))
-						StoryView(user: User.mockedData, isNew: .constant(true))
-						StoryView(user: User.mockedData, isNew: .constant(true))
-						StoryView(user: User.mockedData, isNew: .constant(true))
-						StoryView(user: User.mockedData, isNew: .constant(true))
+						// TODO: To complete
 						Spacer(minLength: 0)
 					}
 				}

@@ -63,3 +63,32 @@ extension Comment {
         Comment(user: User.mockedData, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "22:57, 14 Dec 2020")!, isLiked: false),
     ]
 }
+
+extension Story {
+	static let mockedData = [
+		Story(
+			user: User.mockedData,
+			contents: Content.mockedData
+		)
+	]
+}
+
+extension Story.Content {
+	static let mockedData = [
+		Story.Content(
+			isNew: false,
+			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
+			publicationDate: formatter.date(from: "14:57, 15 Dec 2020")!
+		),
+		Story.Content(
+			isNew: true,
+			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
+			publicationDate: formatter.date(from: "18:57, 16 Dec 2020")!
+		),
+		Story.Content(
+			isNew: true,
+			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
+			publicationDate: formatter.date(from: "14:57, 16 Dec 2020")!
+		)
+	]
+}

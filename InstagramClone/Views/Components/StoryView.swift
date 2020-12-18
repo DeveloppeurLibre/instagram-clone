@@ -11,6 +11,7 @@ import KingfisherSwiftUI
 struct StoryView: View {
 	
 	@ObservedObject var story: Story
+	@State private var isPresenting = false
 	
 	private let coloredGradient = AngularGradient(
 		gradient: Gradient(colors: [.purple, .red, .yellow, .red]),
@@ -38,7 +39,14 @@ struct StoryView: View {
 						story.isNew ? coloredGradient : grayGradient
 					)
 					.frame(width: 80, height: 80)
-			}.padding(2)
+			}
+			.padding(2)
+			.onTapGesture {
+				isPresenting.toggle()
+			}
+			.fullScreenCover(isPresented: $isPresenting, content: {
+				StoryContentView(story: story)
+			})
 			Text(story.user.name)
 				.font(.subheadline)
 				.frame(maxWidth: 82)

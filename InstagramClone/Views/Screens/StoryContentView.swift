@@ -12,7 +12,11 @@ struct StoryContentView: View {
 	
 	@ObservedObject var story: Story
 	@State private var comment: String = ""
-	@State private var indexOfDisplayedContent = 0
+	@State private var indexOfDisplayedContent = 0 {
+		didSet {
+			story.contents[indexOfDisplayedContent].isNew = false
+		}
+	}
 	@Environment(\.presentationMode) var presentationMode
 	private let screenWidth = UIScreen.main.bounds.size.width
 	
@@ -109,6 +113,9 @@ struct StoryContentView: View {
 				.padding(.vertical, 8)
 			}.ignoresSafeArea(.keyboard, edges: .bottom)
 		}
+		.onAppear(perform: {
+			redirectToFirstNewContent()
+		})
     }
 	
 	private var content: AnyView {
@@ -133,6 +140,7 @@ struct StoryContentView: View {
 			return
 		}
 		indexOfDisplayedContent -= 1
+		story.objectWillChange.send()
 	}
 	
 	private func showNextStory() {
@@ -141,6 +149,16 @@ struct StoryContentView: View {
 			return
 		}
 		indexOfDisplayedContent += 1
+		story.objectWillChange.send()
+	}
+	
+	private func redirectToFirstNewContent() {
+		for index in 0..<story.contents.count {
+			if story.contents[index].isNew {
+				indexOfDisplayedContent = index
+				return
+			}
+		}
 	}
 }
 

@@ -94,7 +94,7 @@ extension Story {
 extension Story.Content {
 	static let mockedData = [
 		Story.Content(
-			isNew: true,
+			isNew: false,
 			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
 			publicationDate: formatter.date(from: "14:57, 15 Dec 2020")!
 		),

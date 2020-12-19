@@ -26,6 +26,7 @@
 		648E71AD2587FEF5007BC38F /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648E71AC2587FEF5007BC38F /* MockedData.swift */; };
 		648E71B0258801AD007BC38F /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648E71AF258801AD007BC38F /* PostView.swift */; };
 		648E71B3258815AF007BC38F /* ShapeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648E71B2258815AF007BC38F /* ShapeButton.swift */; };
+		649E44E2258E3747002AD8C2 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E44E1258E3747002AD8C2 /* MainTabView.swift */; };
 		64E1A493258B924200581CDA /* StoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E1A492258B924200581CDA /* StoryContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		648E71AC2587FEF5007BC38F /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		648E71AF258801AD007BC38F /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		648E71B2258815AF007BC38F /* ShapeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeButton.swift; sourceTree = "<group>"; };
+		649E44E1258E3747002AD8C2 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		64E1A492258B924200581CDA /* StoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			children = (
 				648E717C2587E885007BC38F /* FeedView.swift */,
 				64E1A492258B924200581CDA /* StoryContentView.swift */,
+				649E44E1258E3747002AD8C2 /* MainTabView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				648E71AD2587FEF5007BC38F /* MockedData.swift in Sources */,
 				648E719B2587EE81007BC38F /* AppState.swift in Sources */,
 				648E71AA2587EF58007BC38F /* User.swift in Sources */,
+				649E44E2258E3747002AD8C2 /* MainTabView.swift in Sources */,
 				648E71A32587EF0A007BC38F /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

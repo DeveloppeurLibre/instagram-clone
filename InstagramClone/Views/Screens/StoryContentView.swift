@@ -12,6 +12,7 @@ struct StoryContentView: View {
 	
 	@ObservedObject var story: Story
 	@State private var comment: String = ""
+	@State private var indexOfDisplayedContent = 0
 	@Environment(\.presentationMode) var presentationMode
 	private let screenWidth = UIScreen.main.bounds.size.width
 	
@@ -21,7 +22,32 @@ struct StoryContentView: View {
 				.ignoresSafeArea()
 			ZStack(alignment: .top) {
 				content
-				VStack {
+				HStack {
+					Button(action: {
+						showPreviousStory()
+					}, label: {
+						Rectangle()
+							.frame(width: 80, height: screenWidth * 16 / 9)
+							.foregroundColor(.clear)
+					})
+					Spacer()
+					Button(action: {
+						showNextStory()
+					}, label: {
+						Rectangle()
+							.frame(width: 80, height: screenWidth * 16 / 9)
+							.foregroundColor(.clear)
+					})
+				}
+				VStack(spacing: 4) {
+					HStack(spacing: 4) {
+						ForEach(0...story.contents.count - 1, id: \.self) { index in
+							Rectangle()
+								.frame(height: 1)
+								.foregroundColor(.init(white: 0.9, opacity: index <= indexOfDisplayedContent ? 0.9 : 0.5))
+						}
+					}
+					.padding(8)
 					HStack {
 						KFImage(story.user.imageURL)
 							.resizable()
@@ -31,7 +57,7 @@ struct StoryContentView: View {
 						Text(story.user.name)
 							.font(.headline)
 							.foregroundColor(.white)
-						Text(story.contents[0].publicationDate.timeAgo)
+						Text(story.contents[indexOfDisplayedContent].publicationDate.timeAgo)
 							.foregroundColor(Color.init(white: 0.9))
 						Spacer()
 						HStack(spacing: 16) {
@@ -45,17 +71,16 @@ struct StoryContentView: View {
 						.imageScale(.large)
 						.foregroundColor(.white)
 					}
-					.padding()
-					.background(
-						LinearGradient(
-							gradient: Gradient(
-								colors: [Color(white: 0, opacity: 0.5), .clear]),
-							startPoint: .top,
-							endPoint: .bottom
-						)
-					)
-
+					.padding(.horizontal)
 				}
+				.background(
+					LinearGradient(
+						gradient: Gradient(
+							colors: [Color(white: 0, opacity: 0.5), .clear]),
+						startPoint: .top,
+						endPoint: .bottom
+					)
+				)
 			}.cornerRadius(10)
 			VStack {
 				Spacer()
@@ -87,7 +112,7 @@ struct StoryContentView: View {
     }
 	
 	private var content: AnyView {
-		switch story.contents[0].type {
+		switch story.contents[indexOfDisplayedContent].type {
 			case .image(url: let url):
 				return AnyView(
 					KFImage(url)
@@ -100,6 +125,22 @@ struct StoryContentView: View {
 			case .video(url: _):
 				return AnyView(Rectangle())
 		}
+	}
+	
+	private func showPreviousStory() {
+		guard indexOfDisplayedContent > 0 else {
+			presentationMode.wrappedValue.dismiss()
+			return
+		}
+		indexOfDisplayedContent -= 1
+	}
+	
+	private func showNextStory() {
+		guard indexOfDisplayedContent < story.contents.count - 1 else {
+			presentationMode.wrappedValue.dismiss()
+			return
+		}
+		indexOfDisplayedContent += 1
 	}
 }
 

@@ -100,12 +100,12 @@ extension Story.Content {
 		),
 		Story.Content(
 			isNew: true,
-			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
+			type: .image(url: URL(string: "https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
 			publicationDate: formatter.date(from: "18:57, 16 Dec 2020")!
 		),
 		Story.Content(
 			isNew: false,
-			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
+			type: .image(url: URL(string: "https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
 			publicationDate: formatter.date(from: "14:57, 16 Dec 2020")!
 		)
 	]

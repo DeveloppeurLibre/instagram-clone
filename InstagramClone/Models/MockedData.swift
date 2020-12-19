@@ -9,7 +9,7 @@ import Foundation
 
 private let formatter: DateFormatter = {
 	let formatter = DateFormatter()
-	formatter.dateFormat = "HH:mm, d MMM y"
+	formatter.dateFormat = "MMM d, h:mm a"
 	return formatter
 }()
 
@@ -21,7 +21,7 @@ extension Post {
             imageURL: URL(string: "https://images.pexels.com/photos/2040627/pexels-photo-2040627.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"),
             likesCount: 1782,
             description: "Lorem ipsum 🌴 dolor sit amet, consectetur adipiscing elit 😁 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-			date: formatter.date(from: "20:06, 12 Nov 2020")!,
+			date: formatter.date(from: "Sep 12, 2:11 PM")!,
             comments: [],
             isLiked: true,
             isSaved: false
@@ -31,7 +31,7 @@ extension Post {
             imageURL: URL(string: "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"),
             likesCount: 1782,
             description: "Test description",
-            date: formatter.date(from: "16:32, 15 Dec 2020")!,
+            date: formatter.date(from: "Sep 12, 2:11 PM")!,
             comments: Comment.mockedData,
             isLiked: false,
             isSaved: true
@@ -41,7 +41,7 @@ extension Post {
             imageURL: URL(string: "https://images.pexels.com/photos/3061217/pexels-photo-3061217.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"),
             likesCount: 1782,
             description: "Test description",
-            date: formatter.date(from: "23:46, 12 Dec 2020")!,
+            date: formatter.date(from: "Sep 12, 2:11 PM")!,
             comments: Comment.mockedData,
             isLiked: false,
             isSaved: false
@@ -68,9 +68,9 @@ extension User {
 
 extension Comment {
     static let mockedData = [
-		Comment(user: User.mockedData[0], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "03:20, 14 Dec 2020")!, isLiked: false),
-		Comment(user: User.mockedData[1], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "17:20, 15 Dec 2020")!, isLiked: false),
-        Comment(user: User.mockedData[2], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "22:57, 14 Dec 2020")!, isLiked: false),
+		Comment(user: User.mockedData[0], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, isLiked: false),
+		Comment(user: User.mockedData[1], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, isLiked: false),
+        Comment(user: User.mockedData[2], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, isLiked: false),
     ]
 }
 
@@ -96,17 +96,17 @@ extension Story.Content {
 		Story.Content(
 			isNew: false,
 			type: .image(url: URL(string: "https://images.pexels.com/photos/1955134/pexels-photo-1955134.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
-			publicationDate: formatter.date(from: "14:57, 15 Dec 2020")!
+			publicationDate: formatter.date(from: "Sep 12, 2:11 PM")!
 		),
 		Story.Content(
 			isNew: true,
 			type: .image(url: URL(string: "https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
-			publicationDate: formatter.date(from: "18:57, 16 Dec 2020")!
+			publicationDate: formatter.date(from: "Sep 12, 2:11 PM")!
 		),
 		Story.Content(
 			isNew: false,
 			type: .image(url: URL(string: "https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")!),
-			publicationDate: formatter.date(from: "14:57, 16 Dec 2020")!
+			publicationDate: formatter.date(from: "Sep 12, 2:11 PM")!
 		)
 	]
 }

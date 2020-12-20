@@ -50,19 +50,42 @@ struct ContentCreationView: View {
 				}
 				.padding()
 				Spacer()
-				Button(action: {
-					cameraViewer?.takePicture()
-				}, label: {
-					ZStack {
-						Circle()
-							.foregroundColor(.white)
-							.frame(width: 75, height: 75)
-						Circle()
-							.stroke(Color.white, lineWidth: 5)
-							.frame(width: 85, height: 85)
+				if let _ = takenPicture {
+					HStack {
+						Spacer()
+						Button(action: {
+							// FIXME: (Quentin Cornu) Add story to AppState
+							presentationMode.wrappedValue.dismiss()
+						}, label: {
+							ZStack {
+								RoundedRectangle(cornerRadius: 20)
+									.frame(width: 100, height: 40)
+									.foregroundColor(.white)
+								HStack {
+									Text("Add")
+										.fontWeight(.semibold)
+									Image(systemName: "arrow.right")
+								}
+								.foregroundColor(.black)
+							}
+						})
 					}
-				})
-				.padding()
+					.padding(8)
+				} else {
+					Button(action: {
+						cameraViewer?.takePicture()
+					}, label: {
+						ZStack {
+							Circle()
+								.foregroundColor(.white)
+								.frame(width: 75, height: 75)
+							Circle()
+								.stroke(Color.white, lineWidth: 5)
+								.frame(width: 85, height: 85)
+						}
+					})
+					.padding()
+				}
 				Picker("contentType", selection: $selectedContentType) {
 					ForEach(ContentType.allCases) { type in
 						Text(type.rawValue.capitalized)

@@ -93,6 +93,7 @@ struct ContentCreationView: View {
 					}
 				}
 				.pickerStyle(SegmentedPickerStyle())
+				.colorScheme(.dark)
 				.frame(width: 200)
 				.padding()
 			}

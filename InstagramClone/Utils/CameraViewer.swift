@@ -10,23 +10,30 @@ import SwiftUI
 
 struct CameraViewer: UIViewControllerRepresentable {
 	
-	@Environment(\.presentationMode) private var presentationMode
+	@Binding var selectedImage: UIImage?
+	@Environment(\.presentationMode) var presentationMode
 	private let screenWidth = UIScreen.main.bounds.width
 	private let aspectRatio: CGFloat = 16.0 / 9.0
-	private let controller: UIImagePickerController
+	private var controller: UIImagePickerController
 	
-	init() {
+	init(selectedImage: Binding<UIImage?>) {
+		self._selectedImage = selectedImage
 		controller = UIImagePickerController()
-		controller.sourceType = .camera
-		controller.showsCameraControls = false
 	}
 	
 	func makeUIViewController(context: Context) -> UIImagePickerController {
+		controller.sourceType = .camera
+		controller.showsCameraControls = false
+		controller.delegate = context.coordinator
 		return controller
 	}
 	
 	func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
 		
+	}
+	
+	func makeCoordinator() -> CameraCoordinator {
+		return CameraCoordinator(cameraViewer: self)
 	}
 	
 	func takePicture() {

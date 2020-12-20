@@ -11,14 +11,26 @@ struct ContentCreationView: View {
 	
 	@State private var sourceType: UIImagePickerController.SourceType = .camera
 	@State private var selectedContentType: ContentType = .story
+	@State private var takenPicture: UIImage?
+	@State private var cameraViewer: CameraViewer?
+	@Environment(\.presentationMode) var presentationMode
 	private let scale: CGFloat = 3.0 / 4.0 * 16.0 / 9.0
 	private let screenSize = UIScreen.main.bounds
 	
     var body: some View {
 		ZStack(alignment: .top) {
+			Rectangle()
+				.foregroundColor(.black)
+				.ignoresSafeArea()
 			Group {
-				CameraViewer()
-					.scaleEffect(scale, anchor: .top)
+				if let takenPicture = takenPicture {
+					Image(uiImage: takenPicture)
+						.resizable()
+						.aspectRatio(contentMode: .fill)
+				} else if let cameraViewer = cameraViewer {
+					cameraViewer
+						.scaleEffect(scale, anchor: .top)
+				}
 			}
 			.frame(width: screenSize.width, height: screenSize.width * 16 / 9)
 			.cornerRadius(10)
@@ -26,12 +38,20 @@ struct ContentCreationView: View {
 				HStack() {
 					Spacer()
 					Image(systemName: "xmark")
+						.foregroundColor(.white)
 						.imageScale(.large)
+						.onTapGesture {
+							if let _ = takenPicture {
+								takenPicture = nil
+							} else {
+								presentationMode.wrappedValue.dismiss()
+							}
+						}
 				}
 				.padding()
 				Spacer()
 				Button(action: {
-					
+					cameraViewer?.takePicture()
 				}, label: {
 					ZStack {
 						Circle()
@@ -54,7 +74,14 @@ struct ContentCreationView: View {
 				.padding()
 			}
 		}
+		.onAppear {
+			createCameraViewer()
+		}
     }
+	
+	private func createCameraViewer() {
+		cameraViewer = CameraViewer(selectedImage: $takenPicture)
+	}
 }
 
 struct ContentCreationView_Previews: PreviewProvider {

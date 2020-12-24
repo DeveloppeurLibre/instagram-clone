@@ -20,10 +20,6 @@ struct MainTabView: View {
 				}
 			Rectangle()
 				.tabItem {
-					Image(systemName: "play.rectangle")
-				}
-			Rectangle()
-				.tabItem {
 					Image(systemName: "bag")
 				}
 			Rectangle()

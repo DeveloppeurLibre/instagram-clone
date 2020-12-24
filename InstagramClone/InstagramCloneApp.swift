@@ -12,8 +12,8 @@ struct InstagramCloneApp: App {
 
     var body: some Scene {
         WindowGroup {
-            FeedView()
-                .environmentObject(AppState())
+			MainTabView()
+				.environmentObject(AppState())             
         }
     }
 }

@@ -12,7 +12,8 @@ struct PostView: View {
     
     @ObservedObject var post: Post
     
-    @State private var lineLimit = 2
+    private let maxComments = 2
+    @State private var showMore = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -47,9 +48,23 @@ struct PostView: View {
                 Text("\(post.likesCount.formattedWithSeparator) like\(post.likesCount > 1 ? "s" : "")")
                     .font(.headline)
                 VStack(alignment: .leading, spacing: 0) {
-                    (Text("\(post.user.name)").font(.headline) + Text(" \(post.description)")).lineLimit(lineLimit)
-                    Text("more").foregroundColor(.secondary)
+                    (Text("\(post.user.name)").font(.headline) + Text(" \(post.description)")).lineLimit(showMore ? nil : 2)
+                    Text(showMore ? "less" : "more")
+                        .foregroundColor(.secondary)
+                        .onTapGesture {
+                            showMore.toggle()
+                        }
                 }
+                if !post.comments.isEmpty {
+                    Text("View all \(post.comments.count) comments")
+                        .foregroundColor(.secondary)
+                        .onTapGesture {
+                            // FIXME: (Quentin Cornu) To handle
+                        }
+                }
+				Text(post.date.timeAgo)
+					.font(.footnote)
+					.foregroundColor(.secondary)
             }.padding()
         }
     }
@@ -57,10 +72,15 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     
-    @State static var post = Post.mockedData[0]
+    @State static var post1 = Post.mockedData[0]
+    @State static var post2 = Post.mockedData[1]
     
     static var previews: some View {
-        PostView(post: post)
-            .previewLayout(.sizeThatFits)
+        Group {
+            PostView(post: post1)
+                .previewLayout(.sizeThatFits)
+            PostView(post: post2)
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64325604259A229600E914A0 /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325603259A229600E914A0 /* InteractorsContainer.swift */; };
+		64325607259A22C700E914A0 /* PostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325606259A22C700E914A0 /* PostsInteractor.swift */; };
+		64325610259A303600E914A0 /* LocalPostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432560F259A303600E914A0 /* LocalPostsInteractor.swift */; };
 		6434A66725894B7B0061D4FA /* String+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434A66625894B7B0061D4FA /* String+Formatter.swift */; };
 		6434A66A25894B980061D4FA /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434A66925894B980061D4FA /* Date+Formatter.swift */; };
 		647FCF942588CAF000C9492A /* FillableShapeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647FCF932588CAF000C9492A /* FillableShapeButton.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64325603259A229600E914A0 /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
+		64325606259A22C700E914A0 /* PostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsInteractor.swift; sourceTree = "<group>"; };
+		6432560F259A303600E914A0 /* LocalPostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPostsInteractor.swift; sourceTree = "<group>"; };
 		6434A66625894B7B0061D4FA /* String+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatter.swift"; sourceTree = "<group>"; };
 		6434A66925894B980061D4FA /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		647FCF932588CAF000C9492A /* FillableShapeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillableShapeButton.swift; sourceTree = "<group>"; };
@@ -75,6 +81,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64325602259A228000E914A0 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				64325603259A229600E914A0 /* InteractorsContainer.swift */,
+				64325606259A22C700E914A0 /* PostsInteractor.swift */,
+				6432560E259A301800E914A0 /* Locals */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		6432560E259A301800E914A0 /* Locals */ = {
+			isa = PBXGroup;
+			children = (
+				6432560F259A303600E914A0 /* LocalPostsInteractor.swift */,
+			);
+			path = Locals;
+			sourceTree = "<group>";
+		};
 		647FCF9D2589030F00C9492A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +129,9 @@
 		648E71792587E885007BC38F /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
-				64A02B91258E908300142611 /* Coordinators */,
 				648E717A2587E885007BC38F /* InstagramCloneApp.swift */,
+				64A02B91258E908300142611 /* Coordinators */,
+				64325602259A228000E914A0 /* Interactors */,
 				648E719F2587EEEE007BC38F /* Models */,
 				648E71912587E90B007BC38F /* Views */,
 				648E71992587EE71007BC38F /* ViewModels */,
@@ -270,13 +295,16 @@
 				647FCF9F2589032400C9492A /* Numeric+Formatter.swift in Sources */,
 				6434A66A25894B980061D4FA /* Date+Formatter.swift in Sources */,
 				648E71B3258815AF007BC38F /* ShapeButton.swift in Sources */,
+				64325610259A303600E914A0 /* LocalPostsInteractor.swift in Sources */,
 				64893EF3258A754C00CC9BFD /* Story.swift in Sources */,
 				64E1A493258B924200581CDA /* StoryContentView.swift in Sources */,
 				648E717D2587E885007BC38F /* FeedView.swift in Sources */,
 				64A02B8C258E6B9E00142611 /* ContentType.swift in Sources */,
 				648E717B2587E885007BC38F /* InstagramCloneApp.swift in Sources */,
+				64325607259A22C700E914A0 /* PostsInteractor.swift in Sources */,
 				64A02B93258E909E00142611 /* CameraCoordinator.swift in Sources */,
 				6434A66725894B7B0061D4FA /* String+Formatter.swift in Sources */,
+				64325604259A229600E914A0 /* InteractorsContainer.swift in Sources */,
 				647FCFA7258924D500C9492A /* Comment.swift in Sources */,
 				648E71AD2587FEF5007BC38F /* MockedData.swift in Sources */,
 				648E719B2587EE81007BC38F /* AppState.swift in Sources */,

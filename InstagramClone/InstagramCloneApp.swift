@@ -13,7 +13,8 @@ struct InstagramCloneApp: App {
     var body: some Scene {
         WindowGroup {
 			MainTabView()
-				.environmentObject(AppState())             
+				.environmentObject(AppState())
+				.environment(\.interactors, InteractorsContainer.local)
         }
     }
 }

@@ -10,17 +10,24 @@ import SwiftUI
 class InteractorsContainer: EnvironmentKey {
 	
 	let postsInteractor: PostsInteractor
+	let storiesInteractor: StoriesInteractor
 	
-	init(postsInteractor: PostsInteractor) {
+	init(postsInteractor: PostsInteractor,
+		 storiesInteractor: StoriesInteractor) {
 		self.postsInteractor = postsInteractor
+		self.storiesInteractor = storiesInteractor
 	}
 	
 	static var defaultValue: InteractorsContainer {
-		return .init(postsInteractor: StubPostsInteractor())
+		return .init(postsInteractor: StubPostsInteractor(),
+					 storiesInteractor: StubStoriesInteractor())
 	}
 	
-	static var local: InteractorsContainer {
-		return .init(postsInteractor: LocalPostsInteractor())
+	static func local(appState: AppState) -> InteractorsContainer {
+		return .init(
+			postsInteractor: LocalPostsInteractor(),
+			storiesInteractor: LocalStoriesInteractor(appState: appState)
+		)
 	}
 }
 

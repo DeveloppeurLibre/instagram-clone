@@ -129,6 +129,14 @@ struct StoryContentView: View {
 						.frame(width: screenWidth, height: screenWidth * 16 / 9)
 						
 				)
+			case .picture(image: let image):
+				return AnyView(
+					image
+						.resizable()
+						.aspectRatio(contentMode: .fill)
+						.clipShape(Rectangle())
+						.frame(width: screenWidth, height: screenWidth * 16 / 9)
+				)
 			case .video(url: _):
 				return AnyView(Rectangle())
 		}

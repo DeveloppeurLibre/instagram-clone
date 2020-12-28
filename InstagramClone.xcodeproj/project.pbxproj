@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		64325604259A229600E914A0 /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325603259A229600E914A0 /* InteractorsContainer.swift */; };
 		64325607259A22C700E914A0 /* PostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325606259A22C700E914A0 /* PostsInteractor.swift */; };
+		6432560B259A269800E914A0 /* StoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432560A259A269800E914A0 /* StoriesInteractor.swift */; };
 		64325610259A303600E914A0 /* LocalPostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432560F259A303600E914A0 /* LocalPostsInteractor.swift */; };
+		64325617259A322600E914A0 /* LocalStoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325616259A322600E914A0 /* LocalStoriesInteractor.swift */; };
 		6434A66725894B7B0061D4FA /* String+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434A66625894B7B0061D4FA /* String+Formatter.swift */; };
 		6434A66A25894B980061D4FA /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6434A66925894B980061D4FA /* Date+Formatter.swift */; };
 		647FCF942588CAF000C9492A /* FillableShapeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647FCF932588CAF000C9492A /* FillableShapeButton.swift */; };
@@ -40,7 +42,9 @@
 /* Begin PBXFileReference section */
 		64325603259A229600E914A0 /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
 		64325606259A22C700E914A0 /* PostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsInteractor.swift; sourceTree = "<group>"; };
+		6432560A259A269800E914A0 /* StoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesInteractor.swift; sourceTree = "<group>"; };
 		6432560F259A303600E914A0 /* LocalPostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPostsInteractor.swift; sourceTree = "<group>"; };
+		64325616259A322600E914A0 /* LocalStoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoriesInteractor.swift; sourceTree = "<group>"; };
 		6434A66625894B7B0061D4FA /* String+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatter.swift"; sourceTree = "<group>"; };
 		6434A66925894B980061D4FA /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		647FCF932588CAF000C9492A /* FillableShapeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillableShapeButton.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			children = (
 				64325603259A229600E914A0 /* InteractorsContainer.swift */,
 				64325606259A22C700E914A0 /* PostsInteractor.swift */,
+				6432560A259A269800E914A0 /* StoriesInteractor.swift */,
 				6432560E259A301800E914A0 /* Locals */,
 			);
 			path = Interactors;
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				6432560F259A303600E914A0 /* LocalPostsInteractor.swift */,
+				64325616259A322600E914A0 /* LocalStoriesInteractor.swift */,
 			);
 			path = Locals;
 			sourceTree = "<group>";
@@ -291,9 +297,11 @@
 				647FCF942588CAF000C9492A /* FillableShapeButton.swift in Sources */,
 				648E71B0258801AD007BC38F /* PostView.swift in Sources */,
 				647FCF9B2588D42800C9492A /* FeedHeader.swift in Sources */,
+				6432560B259A269800E914A0 /* StoriesInteractor.swift in Sources */,
 				649E44EA258E3F1A002AD8C2 /* CameraViewer.swift in Sources */,
 				647FCF9F2589032400C9492A /* Numeric+Formatter.swift in Sources */,
 				6434A66A25894B980061D4FA /* Date+Formatter.swift in Sources */,
+				64325617259A322600E914A0 /* LocalStoriesInteractor.swift in Sources */,
 				648E71B3258815AF007BC38F /* ShapeButton.swift in Sources */,
 				64325610259A303600E914A0 /* LocalPostsInteractor.swift in Sources */,
 				64893EF3258A754C00CC9BFD /* Story.swift in Sources */,

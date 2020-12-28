@@ -34,11 +34,16 @@ struct FeedView: View {
 			}
 		}.onAppear {
 			loadPosts()
+			loadStories()
 		}
 	}
 	
 	private func loadPosts() {
 		appState.userData.posts = interactors.postsInteractor.loadPosts()
+	}
+	
+	private func loadStories() {
+		appState.userData.stories = interactors.storiesInteractor.loadStories()
 	}
 }
 

@@ -68,9 +68,9 @@ extension User {
 
 extension Comment {
     static let mockedData = [
-		Comment(user: User.mockedData[0], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, isLiked: false),
-		Comment(user: User.mockedData[1], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, isLiked: false),
-        Comment(user: User.mockedData[2], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, isLiked: false),
+		Comment(user: User.mockedData[0], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, numberOfLikes: 167, isLiked: false),
+		Comment(user: User.mockedData[1], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, numberOfLikes: 82, isLiked: false),
+		Comment(user: User.mockedData[2], text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", date: formatter.date(from: "Sep 12, 2:11 PM")!, numberOfLikes: 1, isLiked: false),
     ]
 }
 

@@ -21,7 +21,7 @@ class AppState: ObservableObject {
 
 extension AppState {
     struct UserData {
-        var posts: [Post] = Post.mockedData
-		var stories: [Story] = Story.mockedData
+        var posts: [Post] = []
+		var stories: [Story] = []
     }
 }

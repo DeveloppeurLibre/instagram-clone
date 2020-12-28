@@ -11,6 +11,7 @@ import KingfisherSwiftUI
 struct PostView: View {
     
     @ObservedObject var post: Post
+	@State private var isShowingCommentList = false
     
     private let maxComments = 2
     @State private var showMore = false
@@ -52,20 +53,28 @@ struct PostView: View {
                     Text(showMore ? "less" : "more")
                         .foregroundColor(.secondary)
                         .onTapGesture {
-                            showMore.toggle()
-                        }
-                }
-                if !post.comments.isEmpty {
-                    Text("View all \(post.comments.count) comments")
-                        .foregroundColor(.secondary)
-                        .onTapGesture {
-                            // FIXME: (Quentin Cornu) To handle
-                        }
-                }
+							showMore.toggle()
+						}
+				}
+				if !post.comments.isEmpty {
+					NavigationLink(
+						destination: CommentListView(post: post),
+						isActive: $isShowingCommentList,
+						label: {
+							Text("View all \(post.comments.count) comments")
+								.foregroundColor(.secondary)
+								.onTapGesture {
+									print("test")
+									isShowingCommentList = true
+								}
+						}
+					)
+				}
 				Text(post.date.timeAgo)
 					.font(.footnote)
 					.foregroundColor(.secondary)
             }.padding()
+			
         }
     }
 }

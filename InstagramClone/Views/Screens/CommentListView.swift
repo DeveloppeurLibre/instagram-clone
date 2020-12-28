@@ -47,6 +47,14 @@ struct CommentListView: View {
 				.padding(.vertical, 8)
 			}
 		}
+		.navigationBarTitle("Comments")
+		.navigationBarItems(trailing: Button(action: {
+			// FIXME: (Quentin Cornu) To handle
+		}, label: {
+			Image(systemName: "paperplane")
+		}))
+		.foregroundColor(.primary)
+		.navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -55,6 +63,8 @@ struct CommentListView_Previews: PreviewProvider {
 	@State static var post = Post.mockedData[1]
 	
     static var previews: some View {
-		CommentListView(post: post)
+		NavigationView {
+			CommentListView(post: post)
+		}
     }
 }

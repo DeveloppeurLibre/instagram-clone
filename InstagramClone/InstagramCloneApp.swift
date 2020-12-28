@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct InstagramCloneApp: App {
+	
+	private let appState = AppState()
 
     var body: some Scene {
         WindowGroup {
 			MainTabView()
-				.environmentObject(AppState())             
+				.environmentObject(appState)
+				.environment(\.interactors, InteractorsContainer.local(appState: appState))
         }
     }
 }

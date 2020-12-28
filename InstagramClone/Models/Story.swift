@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Story: ObservableObject, Identifiable {
 	
@@ -35,6 +36,7 @@ class Story: ObservableObject, Identifiable {
 	}
 	
 	enum ContentType {
+		case picture(image: Image)
 		case image(url: URL)
 		case video(url: URL)
 	}

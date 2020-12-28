@@ -11,6 +11,7 @@ import CoreData
 struct FeedView: View {
     
     @EnvironmentObject var appState: AppState
+	@Environment(\.interactors) var interactors: InteractorsContainer
 
     var body: some View {
 		VStack {
@@ -31,8 +32,19 @@ struct FeedView: View {
 					}
 				}
 			}
+		}.onAppear {
+			loadPosts()
+			loadStories()
 		}
-    }
+	}
+	
+	private func loadPosts() {
+		appState.userData.posts = interactors.postsInteractor.loadPosts()
+	}
+	
+	private func loadStories() {
+		appState.userData.stories = interactors.storiesInteractor.loadStories()
+	}
 }
 
 struct FeedView_Previews: PreviewProvider {

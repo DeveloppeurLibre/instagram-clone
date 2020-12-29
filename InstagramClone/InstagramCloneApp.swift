@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct InstagramCloneApp: App {
 	
 	private let appState = AppState()
 
+	init() {
+		FirebaseApp.configure()
+	}
+	
     var body: some Scene {
         WindowGroup {
 			MainTabView()

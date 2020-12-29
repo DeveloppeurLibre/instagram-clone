@@ -12,8 +12,8 @@ struct FeedView: View {
     
     @EnvironmentObject var appState: AppState
 	@Environment(\.interactors) var interactors: InteractorsContainer
-
-    var body: some View {
+	
+	var body: some View {
 		VStack {
 			FeedHeader()
 			ScrollView {
@@ -36,6 +36,7 @@ struct FeedView: View {
 			loadPosts()
 			loadStories()
 		}
+		.navigationBarHidden(true)
 	}
 	
 	private func loadPosts() {

@@ -64,7 +64,6 @@ struct PostView: View {
 							Text("View all \(post.comments.count) comments")
 								.foregroundColor(.secondary)
 								.onTapGesture {
-									print("test")
 									isShowingCommentList = true
 								}
 						}

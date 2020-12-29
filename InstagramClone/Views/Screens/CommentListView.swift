@@ -11,41 +11,61 @@ import KingfisherSwiftUI
 struct CommentListView: View {
 	
 	@ObservedObject var post: Post
+	@State private var comment: String = ""
+	
+	@Environment(\.interactors) var interactors: InteractorsContainer
 	
     var body: some View {
-		List {
-			ForEach(post.comments) { comment in
-				HStack(alignment: .top) {
-					KFImage(comment.user.imageURL)
-						.resizable()
-						.aspectRatio(contentMode: .fill)
-						.frame(width: 35, height: 35)
-						.clipShape(Circle())
-					VStack(alignment: .leading, spacing: 8) {
-						Text(comment.text)
-						HStack {
-							Text(comment.date.timeAgo)
-							Text("\(comment.numberOfLikes) like\(comment.numberOfLikes > 1 ? "s" : "")")
-								.fontWeight(.semibold)
-						}
-						.font(.caption)
-						.foregroundColor(.gray)
-					}
-					Image(systemName: "heart\(comment.isLiked ? ".fill" : "")")
-						.foregroundColor(comment.isLiked ? .red : .gray)
-						.imageScale(.small)
-						.onTapGesture {
-							if comment.isLiked {
-								comment.numberOfLikes -= 1
-							} else {
-								comment.numberOfLikes += 1
+		VStack {
+			List {
+				ForEach(post.comments) { comment in
+					HStack(alignment: .top) {
+						KFImage(comment.user.imageURL)
+							.resizable()
+							.aspectRatio(contentMode: .fill)
+							.frame(width: 35, height: 35)
+							.clipShape(Circle())
+						VStack(alignment: .leading, spacing: 8) {
+							Text(comment.text)
+							HStack {
+								Text(comment.date.timeAgo)
+								Text("\(comment.numberOfLikes) like\(comment.numberOfLikes > 1 ? "s" : "")")
+									.fontWeight(.semibold)
 							}
-							comment.isLiked.toggle()
-							post.objectWillChange.send()
+							.font(.caption)
+							.foregroundColor(.gray)
 						}
+						Image(systemName: "heart\(comment.isLiked ? ".fill" : "")")
+							.foregroundColor(comment.isLiked ? .red : .gray)
+							.imageScale(.small)
+							.onTapGesture {
+								if comment.isLiked {
+									comment.numberOfLikes -= 1
+								} else {
+									comment.numberOfLikes += 1
+								}
+								comment.isLiked.toggle()
+								post.objectWillChange.send()
+							}
+					}
+					.padding(.vertical, 8)
 				}
-				.padding(.vertical, 8)
 			}
+			// FIXUP: (Quentin Cornu) Use url of connected user
+			NewCommentTextField(
+				imageURL: User.mockedData[0].imageURL!,
+				comment: $comment,
+				onPostAction: {
+					let newComment = Comment(
+						user: User.mockedData[0],
+						text: comment, date: Date(),
+						numberOfLikes: 0,
+						isLiked: false
+					)
+					interactors.postsInteractor.addComment(comment: newComment, in: post)
+				}
+			)
+			.padding()
 		}
 		.navigationBarTitle("Comments")
 		.navigationBarItems(trailing: Button(action: {

@@ -9,11 +9,16 @@ import Foundation
 
 protocol PostsInteractor {
 	func loadPosts() -> [Post]
+	func addComment(comment: Comment, in post: Post)
 }
 
 class StubPostsInteractor: PostsInteractor {
 	
 	func loadPosts() -> [Post] {
 		return []
+	}
+	
+	func addComment(comment: Comment, in post: Post) {
+		
 	}
 }

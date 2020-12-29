@@ -12,4 +12,9 @@ class LocalPostsInteractor: PostsInteractor {
 	func loadPosts() -> [Post] {
 		return Post.mockedData
 	}
+	
+	func addComment(comment: Comment, in post: Post) {
+		post.comments.append(comment)
+		
+	}
 }

@@ -15,6 +15,7 @@ struct LoginView: View {
 	
     var body: some View {
 		VStack {
+			Spacer()
 			Image("instagram_header")
 				.resizable()
 				.aspectRatio(contentMode: .fit)
@@ -61,7 +62,10 @@ struct LoginView: View {
 				.foregroundColor(.blue)
 			}
 			.padding()
-			
+			Spacer()
+			BottomBanner(indication: "Don't have an account?", actionText: "Sign Up") {
+				// FIXME: (Quentin Cornu) Present Signup Screen
+			}
 		}
     }
 	

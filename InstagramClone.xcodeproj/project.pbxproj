@@ -40,6 +40,7 @@
 		649E44EA258E3F1A002AD8C2 /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E44E9258E3F1A002AD8C2 /* CameraViewer.swift */; };
 		64A02B8C258E6B9E00142611 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A02B8B258E6B9E00142611 /* ContentType.swift */; };
 		64A02B93258E909E00142611 /* CameraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A02B92258E909E00142611 /* CameraCoordinator.swift */; };
+		64CD1895259CC40700EB0C8C /* BottomBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CD1894259CC40700EB0C8C /* BottomBanner.swift */; };
 		64E1A493258B924200581CDA /* StoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E1A492258B924200581CDA /* StoryContentView.swift */; };
 		64EE3DCC259B2D1200F00D56 /* NewCommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE3DCB259B2D1200F00D56 /* NewCommentTextField.swift */; };
 		64EE3DD3259B8D5600F00D56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64EE3DD2259B8D5600F00D56 /* GoogleService-Info.plist */; };
@@ -82,6 +83,7 @@
 		649E44E9258E3F1A002AD8C2 /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		64A02B8B258E6B9E00142611 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		64A02B92258E909E00142611 /* CameraCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
+		64CD1894259CC40700EB0C8C /* BottomBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBanner.swift; sourceTree = "<group>"; };
 		64E1A492258B924200581CDA /* StoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryContentView.swift; sourceTree = "<group>"; };
 		64EE3DCB259B2D1200F00D56 /* NewCommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentTextField.swift; sourceTree = "<group>"; };
 		64EE3DD2259B8D5600F00D56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				64EE3DCB259B2D1200F00D56 /* NewCommentTextField.swift */,
 				647A3640259BA88B00F3B123 /* CustomTextField.swift */,
 				647A3643259BAC9A00F3B123 /* CustomButton.swift */,
+				64CD1894259CC40700EB0C8C /* BottomBanner.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				64325604259A229600E914A0 /* InteractorsContainer.swift in Sources */,
 				647FCFA7258924D500C9492A /* Comment.swift in Sources */,
 				648E71AD2587FEF5007BC38F /* MockedData.swift in Sources */,
+				64CD1895259CC40700EB0C8C /* BottomBanner.swift in Sources */,
 				64EE3DCC259B2D1200F00D56 /* NewCommentTextField.swift in Sources */,
 				648E719B2587EE81007BC38F /* AppState.swift in Sources */,
 				648E71AA2587EF58007BC38F /* User.swift in Sources */,

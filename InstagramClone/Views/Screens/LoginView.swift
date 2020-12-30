@@ -23,7 +23,7 @@ struct LoginView: View {
 				.frame(height: 60)
 			VStack(spacing: 32) {
 				VStack(alignment: .trailing, spacing: 16) {
-					CustomTextField(placeholder: "User name", text: $userName) { value in
+					CustomTextField(placeholder: "User name", text: $userName) { _ in
 						updateDisability()
 					}
 					CustomTextField(placeholder: "Password", text: $password, onChange: { value in

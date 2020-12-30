@@ -41,6 +41,7 @@
 		64A02B8C258E6B9E00142611 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A02B8B258E6B9E00142611 /* ContentType.swift */; };
 		64A02B93258E909E00142611 /* CameraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A02B92258E909E00142611 /* CameraCoordinator.swift */; };
 		64CD1895259CC40700EB0C8C /* BottomBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CD1894259CC40700EB0C8C /* BottomBanner.swift */; };
+		64CD1898259D0BA400EB0C8C /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CD1897259D0BA400EB0C8C /* SignupView.swift */; };
 		64E1A493258B924200581CDA /* StoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E1A492258B924200581CDA /* StoryContentView.swift */; };
 		64EE3DCC259B2D1200F00D56 /* NewCommentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE3DCB259B2D1200F00D56 /* NewCommentTextField.swift */; };
 		64EE3DD3259B8D5600F00D56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64EE3DD2259B8D5600F00D56 /* GoogleService-Info.plist */; };
@@ -84,6 +85,7 @@
 		64A02B8B258E6B9E00142611 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		64A02B92258E909E00142611 /* CameraCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCoordinator.swift; sourceTree = "<group>"; };
 		64CD1894259CC40700EB0C8C /* BottomBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBanner.swift; sourceTree = "<group>"; };
+		64CD1897259D0BA400EB0C8C /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		64E1A492258B924200581CDA /* StoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryContentView.swift; sourceTree = "<group>"; };
 		64EE3DCB259B2D1200F00D56 /* NewCommentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentTextField.swift; sourceTree = "<group>"; };
 		64EE3DD2259B8D5600F00D56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				649E44E6258E3AE0002AD8C2 /* ContentCreationView.swift */,
 				6432561E259A3CA300E914A0 /* CommentListView.swift */,
 				647A363D259BA7E000F3B123 /* LoginView.swift */,
+				64CD1897259D0BA400EB0C8C /* SignupView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				647A3641259BA88B00F3B123 /* CustomTextField.swift in Sources */,
 				647A363E259BA7E000F3B123 /* LoginView.swift in Sources */,
 				64A02B93258E909E00142611 /* CameraCoordinator.swift in Sources */,
+				64CD1898259D0BA400EB0C8C /* SignupView.swift in Sources */,
 				6434A66725894B7B0061D4FA /* String+Formatter.swift in Sources */,
 				64325604259A229600E914A0 /* InteractorsContainer.swift in Sources */,
 				647FCFA7258924D500C9492A /* Comment.swift in Sources */,

@@ -12,6 +12,7 @@ struct LoginView: View {
 	@State private var userName: String = ""
 	@State private var password: String = ""
 	@State private var disabled: Bool = true
+	@State private var isShowingSignUp = false
 	
     var body: some View {
 		VStack {
@@ -64,8 +65,11 @@ struct LoginView: View {
 			.padding()
 			Spacer()
 			BottomBanner(indication: "Don't have an account?", actionText: "Sign Up") {
-				// FIXME: (Quentin Cornu) Present Signup Screen
+				isShowingSignUp.toggle()
 			}
+			.sheet(isPresented: $isShowingSignUp, content: {
+				SignupView()
+			})
 		}
     }
 	

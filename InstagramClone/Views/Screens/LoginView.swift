@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
 	
@@ -13,6 +14,7 @@ struct LoginView: View {
 	@State private var password: String = ""
 	@State private var disabled: Bool = true
 	@State private var isShowingSignUp = false
+	@State private var handle: AuthStateDidChangeListenerHandle?
 	
     var body: some View {
 		VStack {
@@ -71,7 +73,13 @@ struct LoginView: View {
 				SignupView()
 			})
 		}
-    }
+		.onAppear(perform: {
+			self.appear()
+		})
+		.onDisappear(perform: {
+			disapear()
+		})
+	}
 	
 	private func updateDisability() {
 		if !userName.isEmpty && !password.isEmpty {
@@ -79,6 +87,16 @@ struct LoginView: View {
 		} else {
 			disabled = true
 		}
+	}
+	
+	private func appear() {
+		handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+			// FIXME: (Quentin Cornu) To handle
+		})
+	}
+	
+	private func disapear() {
+		Auth.auth().removeStateDidChangeListener(handle!)
 	}
 }
 

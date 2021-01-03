@@ -14,6 +14,7 @@ struct SignupView: View {
 	@State private var password: String = ""
 	@State private var passwordConfirmation: String = ""
 	@State private var disabled: Bool = true
+	@Environment(\.interactors) var interactors: InteractorsContainer
 
     var body: some View {
 		VStack(spacing: 32) {
@@ -31,7 +32,7 @@ struct SignupView: View {
 					updateDisability()
 				}, isSecured: true)
 				CustomButton(text: "Next", action: {
-					// FIXUP: (Quentin Cornu) To handle
+					nextButtonPressed()
 				}, disabled: $disabled)
 			}
 			.padding()
@@ -47,6 +48,22 @@ struct SignupView: View {
 			disabled = false
 		} else {
 			disabled = true
+		}
+	}
+	
+	private func nextButtonPressed() {
+		guard password == passwordConfirmation else {
+			// TODO: (Quentin Cornu) To handle
+			return
+		}
+		interactors.authInteractor.signUp(withEmail: emailAddress, password: password) { (userData, error) in
+			if let error = error {
+				print(error.localizedDescription)
+				return
+			}
+			if let _ = userData {
+				// TODO: (Quentin Cornu) To handle
+			}
 		}
 	}
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643178F425A25F090038C8E4 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643178F325A25F090038C8E4 /* AuthInteractor.swift */; };
+		643178F725A25F930038C8E4 /* AuthInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643178F625A25F930038C8E4 /* AuthInteractorImplementation.swift */; };
 		64325604259A229600E914A0 /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325603259A229600E914A0 /* InteractorsContainer.swift */; };
 		64325607259A22C700E914A0 /* PostsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64325606259A22C700E914A0 /* PostsInteractor.swift */; };
 		6432560B259A269800E914A0 /* StoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432560A259A269800E914A0 /* StoriesInteractor.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		2A30C361CCAD9BECB32B93F7 /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
+		643178F325A25F090038C8E4 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
+		643178F625A25F930038C8E4 /* AuthInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorImplementation.swift; sourceTree = "<group>"; };
 		64325603259A229600E914A0 /* InteractorsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
 		64325606259A22C700E914A0 /* PostsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsInteractor.swift; sourceTree = "<group>"; };
 		6432560A259A269800E914A0 /* StoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesInteractor.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		64325602259A228000E914A0 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				643178F325A25F090038C8E4 /* AuthInteractor.swift */,
 				64325603259A229600E914A0 /* InteractorsContainer.swift */,
 				64325606259A22C700E914A0 /* PostsInteractor.swift */,
 				6432560A259A269800E914A0 /* StoriesInteractor.swift */,
@@ -122,6 +127,7 @@
 			children = (
 				6432560F259A303600E914A0 /* LocalPostsInteractor.swift */,
 				64325616259A322600E914A0 /* LocalStoriesInteractor.swift */,
+				643178F625A25F930038C8E4 /* AuthInteractorImplementation.swift */,
 			);
 			path = Locals;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				6432560B259A269800E914A0 /* StoriesInteractor.swift in Sources */,
 				649E44EA258E3F1A002AD8C2 /* CameraViewer.swift in Sources */,
 				6432561F259A3CA300E914A0 /* CommentListView.swift in Sources */,
+				643178F725A25F930038C8E4 /* AuthInteractorImplementation.swift in Sources */,
 				647FCF9F2589032400C9492A /* Numeric+Formatter.swift in Sources */,
 				6434A66A25894B980061D4FA /* Date+Formatter.swift in Sources */,
 				64325617259A322600E914A0 /* LocalStoriesInteractor.swift in Sources */,
@@ -402,6 +409,7 @@
 				64893EF3258A754C00CC9BFD /* Story.swift in Sources */,
 				64E1A493258B924200581CDA /* StoryContentView.swift in Sources */,
 				648E717D2587E885007BC38F /* FeedView.swift in Sources */,
+				643178F425A25F090038C8E4 /* AuthInteractor.swift in Sources */,
 				64A02B8C258E6B9E00142611 /* ContentType.swift in Sources */,
 				648E717B2587E885007BC38F /* InstagramCloneApp.swift in Sources */,
 				64325607259A22C700E914A0 /* PostsInteractor.swift in Sources */,

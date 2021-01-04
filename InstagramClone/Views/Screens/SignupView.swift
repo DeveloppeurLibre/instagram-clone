@@ -14,31 +14,43 @@ struct SignupView: View {
 	@State private var password: String = ""
 	@State private var passwordConfirmation: String = ""
 	@State private var disabled: Bool = true
+	@State private var errorMessage = ""
+	@State private var isShowingMainTabView = false
 	@Environment(\.interactors) var interactors: InteractorsContainer
 
     var body: some View {
-		VStack(spacing: 32) {
-			Spacer()
-			Text("Enter your Email")
-				.font(.title)
-			VStack(spacing: 16) {
-				CustomTextField(placeholder: "Email Address", text: $emailAddress) { _ in
-					updateDisability()
+		NavigationView {
+			VStack(spacing: 32) {
+				Spacer()
+				Text("Enter your Email")
+					.font(.title)
+				VStack(spacing: 16) {
+					CustomTextField(placeholder: "Email Address", text: $emailAddress) { _ in
+						updateDisability()
+					}
+					CustomTextField(placeholder: "Password", text: $password, onChange: { _ in
+						updateDisability()
+					}, isSecured: true)
+					CustomTextField(placeholder: "Confirm your password", text: $passwordConfirmation, onChange: { _ in
+						updateDisability()
+					}, isSecured: true)
+					CustomButton(text: "Next", action: {
+						nextButtonPressed()
+					}, disabled: $disabled)
 				}
-				CustomTextField(placeholder: "Password", text: $password, onChange: { _ in
-					updateDisability()
-				}, isSecured: true)
-				CustomTextField(placeholder: "Confirm your password", text: $passwordConfirmation, onChange: { _ in
-					updateDisability()
-				}, isSecured: true)
-				CustomButton(text: "Next", action: {
-					nextButtonPressed()
-				}, disabled: $disabled)
-			}
-			.padding()
-			Spacer()
-			BottomBanner(indication: "Already have an account ?", actionText: "Sign In.") {
-				presentationMode.wrappedValue.dismiss()
+				.padding()
+				Text(errorMessage)
+					.foregroundColor(.red)
+				Spacer()
+				BottomBanner(indication: "Already have an account ?", actionText: "Sign In.") {
+					presentationMode.wrappedValue.dismiss()
+				}
+				NavigationLink(
+					destination: MainTabView().navigationBarHidden(true),
+					isActive: $isShowingMainTabView,
+					label: { Text("") }
+				)
+				.hidden()
 			}
 		}
     }
@@ -53,16 +65,16 @@ struct SignupView: View {
 	
 	private func nextButtonPressed() {
 		guard password == passwordConfirmation else {
-			// TODO: (Quentin Cornu) To handle
+			errorMessage = "The two passwords must be the same"
 			return
 		}
 		interactors.authInteractor.signUp(withEmail: emailAddress, password: password) { (userData, error) in
 			if let error = error {
-				print(error.localizedDescription)
+				errorMessage = error.localizedDescription
 				return
 			}
 			if let _ = userData {
-				// TODO: (Quentin Cornu) To handle
+				isShowingMainTabView.toggle()
 			}
 		}
 	}

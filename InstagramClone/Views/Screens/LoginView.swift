@@ -69,7 +69,7 @@ struct LoginView: View {
 			BottomBanner(indication: "Don't have an account?", actionText: "Sign Up") {
 				isShowingSignUp.toggle()
 			}
-			.sheet(isPresented: $isShowingSignUp, content: {
+			.fullScreenCover(isPresented: $isShowingSignUp, content: {
 				SignupView()
 			})
 		}

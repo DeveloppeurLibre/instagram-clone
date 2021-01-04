@@ -17,4 +17,13 @@ class AuthInteractorImplementation: AuthInteractor {
 			completion(authResult, error)
 		}
 	}
+	
+	func signIn(withEmail email: String,
+				password: String,
+				completion: @escaping (AuthDataResult?, Error?) -> Void) {
+		Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+			guard let _ = self else { return }
+			completion(authResult, error)
+		}
+	}
 }

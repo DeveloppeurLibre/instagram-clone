@@ -12,6 +12,9 @@ protocol AuthInteractor {
 	func signUp(withEmail email: String,
 				password: String,
 				completion: @escaping (AuthDataResult?, Error?) -> Void)
+	func signIn(withEmail email: String,
+				password: String,
+				completion: @escaping (AuthDataResult?, Error?) -> Void)
 }
 
 class StubAuthInteractor: AuthInteractor {
@@ -19,6 +22,12 @@ class StubAuthInteractor: AuthInteractor {
 	func signUp(withEmail email: String,
 				password: String,
 				completion: (AuthDataResult?, Error?) -> Void) {
+		
+	}
+	
+	func signIn(withEmail email: String,
+				password: String,
+				completion: @escaping (AuthDataResult?, Error?) -> Void) {
 		
 	}
 }

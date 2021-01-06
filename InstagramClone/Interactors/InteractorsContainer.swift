@@ -11,22 +11,27 @@ class InteractorsContainer: EnvironmentKey {
 	
 	let postsInteractor: PostsInteractor
 	let storiesInteractor: StoriesInteractor
+	let authInteractor: AuthInteractor
 	
 	init(postsInteractor: PostsInteractor,
-		 storiesInteractor: StoriesInteractor) {
+		 storiesInteractor: StoriesInteractor,
+		 authInteractor: AuthInteractor) {
 		self.postsInteractor = postsInteractor
 		self.storiesInteractor = storiesInteractor
+		self.authInteractor = authInteractor
 	}
 	
 	static var defaultValue: InteractorsContainer {
 		return .init(postsInteractor: StubPostsInteractor(),
-					 storiesInteractor: StubStoriesInteractor())
+					 storiesInteractor: StubStoriesInteractor(),
+					 authInteractor: StubAuthInteractor())
 	}
 	
 	static func local(appState: AppState) -> InteractorsContainer {
 		return .init(
 			postsInteractor: LocalPostsInteractor(),
-			storiesInteractor: LocalStoriesInteractor(appState: appState)
+			storiesInteractor: LocalStoriesInteractor(appState: appState),
+			authInteractor: AuthInteractorImplementation()
 		)
 	}
 }

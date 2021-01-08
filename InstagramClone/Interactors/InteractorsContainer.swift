@@ -29,7 +29,10 @@ class InteractorsContainer: EnvironmentKey {
 	
 	static func local(appState: AppState) -> InteractorsContainer {
 		return .init(
-			postsInteractor: LocalPostsInteractor(),
+			postsInteractor: PostsInteractorImplementation(
+				postsRepository: FirebasePostsRepository(),
+				usersRepository: FirebaseUsersRepository()
+			),
 			storiesInteractor: LocalStoriesInteractor(appState: appState),
 			authInteractor: AuthInteractorImplementation()
 		)

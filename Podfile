@@ -8,5 +8,6 @@ target 'InstagramClone' do
   # Pods for InstagramClone
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end

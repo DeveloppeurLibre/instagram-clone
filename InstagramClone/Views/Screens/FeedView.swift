@@ -40,7 +40,12 @@ struct FeedView: View {
 	}
 	
 	private func loadPosts() {
-		appState.userData.posts = interactors.postsInteractor.loadPosts()
+		interactors.postsInteractor.loadPosts { posts in
+			appState.userData.posts = posts
+//			for post in posts {
+//				print(post.user.)
+//			}
+		}
 	}
 	
 	private func loadStories() {

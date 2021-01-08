@@ -8,14 +8,14 @@
 import Foundation
 
 protocol PostsInteractor {
-	func loadPosts() -> [Post]
+	func loadPosts(completion: @escaping ([Post]) -> Void)
 	func addComment(comment: Comment, in post: Post)
 }
 
 class StubPostsInteractor: PostsInteractor {
 	
-	func loadPosts() -> [Post] {
-		return []
+	func loadPosts(completion: @escaping ([Post]) -> Void) {
+		
 	}
 	
 	func addComment(comment: Comment, in post: Post) {
